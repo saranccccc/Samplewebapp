@@ -2,6 +2,6 @@ package com.example.demo.entity;
 
 
 
-public class Student {
+public class Member {
 
 }
