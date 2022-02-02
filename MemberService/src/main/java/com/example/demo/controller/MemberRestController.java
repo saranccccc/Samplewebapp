@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.runner.IRegisterConsumer;
 import com.example.demo.runner.RegisterConsumer;
 
 @RestController
@@ -13,6 +14,9 @@ import com.example.demo.runner.RegisterConsumer;
 public class MemberRestController {
 	@Autowired
 	RegisterConsumer consumer;
+	
+	@Autowired
+	IRegisterConsumer registerConsumer;
 	
 	@GetMapping("/register")
 	public ResponseEntity<String> validatePayment() {
@@ -26,5 +30,12 @@ public class MemberRestController {
 		System.out.println("member register Page");
 		consumer.getRegister();
 		return ResponseEntity.ok(	consumer.getLoadBalancerClient());
+	}
+	
+	@GetMapping("/feign")
+	public ResponseEntity<?> getFiegn() {
+		System.out.println("member register Page");
+		consumer.getRegister();
+		return ResponseEntity.ok(	registerConsumer.registerMember());
 	}
 }
