@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/payment")
-public class PaymentRestController {
+public class RegisterRestController {
 	@GetMapping("/validate")
 	public ResponseEntity<String> validatePayment() {
 		System.out.println("Payment Page");
